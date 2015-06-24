@@ -19,7 +19,7 @@ module CollectiveIdea #:nodoc:
           # Don't rebuild a valid tree.
           return true if model.valid?
 
-          root_nodes.each do |root_node|
+          root_nodes.find_each do |root_node|
             # setup index for this scope
             indices[scope_for_rebuild.call(root_node)] ||= 0
             set_left_and_rights(root_node)
